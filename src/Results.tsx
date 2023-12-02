@@ -1,6 +1,7 @@
 import Pet from "./Pet";
+import { Animal, Pet as PetType } from "./APIResponses";
 
-const Results = ({ pets }) => {
+const Results = ({ pets }: { pets: PetType[] }) => {
   return (
     <div className="search">
       {!pets.length ? (
@@ -9,7 +10,7 @@ const Results = ({ pets }) => {
         pets.map((pet) => {
           return (
             <Pet
-              animal={pet.animal}
+              animal={pet.animal as Animal}
               key={pet.id}
               name={pet.name}
               breed={pet.breed}
